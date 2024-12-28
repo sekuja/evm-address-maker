@@ -1,0 +1,36 @@
+{
+  "name": "evm-address-maker",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot",
+    "EVM",
+    "wallet",
+    "address",
+    "generator",
+    "private key",
+    "cryptocurrency",
+    "JavaScript",
+    "Node.js",
+    "npm",
+    "CLI"
+  ],
+  "author": "Sekuja",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ethers": "^5.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sekuja/evm-address-maker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sekuja/evm-address-maker/issues"
+  },
+  "homepage": "https://github.com/sekuja/evm-address-maker#readme"
+}
