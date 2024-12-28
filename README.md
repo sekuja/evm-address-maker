@@ -21,7 +21,7 @@ EVM Address Maker is a bot designed to help you generate Ethereum (or other EVM-
 ### Clone the Repository:
 
 ```
-git clone https://github.com/username/evm-address-maker.git
+git clone https://github.com/sekuja/evm-address-maker.git
 cd evm-address-maker
 ```
 
