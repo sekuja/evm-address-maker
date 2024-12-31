@@ -14,16 +14,16 @@
   <a href="https://www.npmjs.com/package/evm-address-maker"><img alt="Downloads" src="https://img.shields.io/github/downloads/sekuja/evm-address-maker/total"/></a>
 </p>
 
-## Introduction
+## 📖 Introduction
 
 **EVM Address Maker** is a tool designed to help you generate Ethereum (or other EVM-compatible network) addresses with custom prefixes and/or suffixes. The tool leverages worker threads for parallel processing to accelerate the search.
 
 ## ⚙️ Features
 
-- Custom Address Search: Find addresses with specific prefixes and/or suffixes.
-- High Efficiency: Uses multi-threading for faster address generation.
-- Loading Feedback: Displays a loading animation during the search process.
-- User-Friendly: Configuration via a simple `.env` file.
+- **Custom Address Search**: Find addresses with specific prefixes and/or suffixes.
+- **High Efficiency**: Uses multi-threading for faster address generation.
+- **Time Feedback**: Displays the time during the search process.
+- **User-Friendly**: Configuration via a simple `.env` file.
 
 ## 📋 Requirements
 
@@ -48,7 +48,11 @@ npm install
 ### Set Up `.env` Configuration: Create a `.env` file in the root directory and add the following:
 
 ```
-# Replace '0x00' and '00' with the prefix and suffix you want
+# Replace '0x00' and '00' with the prefix and suffix you want.
+# NUM_THREADS="" comment '#' To use the maximum number of threads (based on CPU cores), keep this line commented.
+# If you want to manually set the number of threads, remove the comment '#' and specify the number, e.g., NUM_THREADS="4".
+
+# NUM_THREADS="" # Number of threads to use (default is the number of CPU cores).
 PREFIX="0x00" # Example: starts with '0x00'
 SUFFIX="00" # Example: ends with '00'
 ```
@@ -64,7 +68,7 @@ npm run build
 ```
 WSL@DESKTOP:~/evm-address-maker$ npm run build
 
-> evm-address-maker@1.0.0 build
+> evm-address-maker@1.0.3 build
 > node src/index.js
 
 Looking for addresses with the prefix "0x00" and the suffix "00" using 8 threads.
@@ -78,7 +82,7 @@ WSL@DESKTOP:~/evm-address-maker$
 
 - **Security**: Keep your private key secure. Never share it or store it in unsafe locations.
 - **Efficiency**: The longer the prefix/suffix, the more time it will take to find a matching address. Use wisely.
-- **Multi-threading**: The tool automatically detects the number of CPU cores to determine the number of threads to use.
+- **Multi-threading**: This tool automatically detects the number of CPU cores to determine the number of threads to use. You can also specify the number of threads manually by setting the `NUM_THREADS` variable in the `.env` file.
 
 ## 👤 Author
 

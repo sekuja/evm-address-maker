@@ -6,26 +6,23 @@ const {
   workerData,
 } = require("worker_threads");
 const { ethers } = require("ethers");
+const os = require("os");
 
-function startLoading() {
-  const loadingChars = ["⢹", "⢺", "⢼", "⣸", "⣇", "⡧", "⡗", "⡏"];
-  let index = 0;
-
-  const interval = setInterval(() => {
-    process.stdout.write(`\rSearching ${loadingChars[index]}`);
-    index = (index + 1) % loadingChars.length;
-  }, 80);
-
-  return interval;
+function startTimer() {
+  let startTime = Date.now();
+  return setInterval(() => {
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    process.stdout.write(`\rSearching... Elapsed time: ${elapsed} seconds`);
+  }, 1000);
 }
 
-function stopLoading(interval) {
+function stopTimer(interval) {
   clearInterval(interval);
-  process.stdout.write("\r"); // Menghapus efek loading dari terminal
+  process.stdout.write("\r"); // Removing the timer effect from the terminal
 }
 
 if (isMainThread) {
-  const numThreads = require("os").cpus().length;
+  const numThreads = parseInt(process.env.NUM_THREADS) || os.cpus().length;
   const prefix = process.env.PREFIX || "";
   const suffix = process.env.SUFFIX || "";
 
@@ -34,7 +31,7 @@ if (isMainThread) {
   );
 
   let found = false; // Flag to stop other threads once an address is found
-  const loadingInterval = startLoading();
+  const timerInterval = startTimer();
 
   for (let i = 0; i < numThreads; i++) {
     const worker = new Worker(__filename, { workerData: { prefix, suffix } });
@@ -42,7 +39,7 @@ if (isMainThread) {
     worker.on("message", (wallet) => {
       if (!found) {
         found = true; // Ensure only one address is reported
-        stopLoading(loadingInterval);
+        stopTimer(timerInterval);
         console.log("Address found!");
         console.log(`Address: ${wallet.address}`);
         console.log(`Private Key: ${wallet.privateKey}`);
