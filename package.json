@@ -1,23 +1,21 @@
 {
   "name": "evm-address-maker",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "description": "EVM Address Maker is a tool designed to help you generate Ethereum (or other EVM-compatible network) addresses with custom prefixes and/or suffixes. The tool leverages worker threads for parallel processing to accelerate the search.",
   "main": "src/index.js",
   "scripts": {
     "build": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "bot",
+    "Tool",
     "EVM",
-    "wallet",
-    "address",
-    "generator",
-    "private key",
-    "cryptocurrency",
-    "JavaScript",
-    "Node.js",
-    "npm",
-    "CLI"
+    "Wallet",
+    "Address",
+    "Ethereum",
+    "Generator",
+    "Private Key",
+    "Cryptocurrency"
   ],
   "author": "Sekuja",
   "license": "MIT",

@@ -1,8 +1,22 @@
-# Welcome to EVM Address Maker! 👋
+<h1 align="center">EVM Address Maker</h1>
 
-EVM Address Maker is a bot designed to help you generate Ethereum (or other EVM-compatible network) addresses with custom prefixes and/or suffixes. The bot leverages worker threads for parallel processing to accelerate the search.
+<!-- The badges section -->
+<p align="center">
+  <!-- Shields.io Contributors -->
+  <a href="https://github.com/sekuja/evm-address-maker/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors/sekuja/evm-address-maker"/></a>
+  <!-- Shields.io Issues -->
+  <a href="https://github.com/sekuja/evm-address-maker/issues"><img alt="Issues" src="https://img.shields.io/github/issues/sekuja/evm-address-maker"/></a>
+  <!-- Shields.io License -->
+  <a href="https://github.com/sekuja/evm-address-maker/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/sekuja/evm-address-maker"/></a>
+  <!-- Shields.io Stars -->
+  <a href="https://github.com/sekuja/evm-address-maker/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/sekuja/evm-address-maker"/></a>
+  <!-- Shields.io Downloads -->
+  <a href="https://www.npmjs.com/package/evm-address-maker"><img alt="Downloads" src="https://img.shields.io/github/downloads/sekuja/evm-address-maker/total"/></a>
+</p>
 
-<a href="https://github.com/sekuja/evm-address-maker/graphs/contributors"><img src="https://img.shields.io/github/contributors/sekuja/evm-address-maker?style=flat-square" alt="Contributors"></a> <a href="https://github.com/sekuja/evm-address-maker/issues"><img src="https://img.shields.io/github/issues/sekuja/evm-address-maker?style=flat-square" alt="Issues"></a> <a href="https://github.com/sekuja/evm-address-maker/stargazers"><img src="https://img.shields.io/github/stars/sekuja/evm-address-maker?style=flat-square" alt="Stars"></a> <a href="https://github.com/sekuja/evm-address-maker/blob/master/LICENSE"><img src="https://img.shields.io/github/license/sekuja/evm-address-maker?style=flat-square" alt="License"></a>
+## Introduction
+
+**EVM Address Maker** is a tool designed to help you generate Ethereum (or other EVM-compatible network) addresses with custom prefixes and/or suffixes. The tool leverages worker threads for parallel processing to accelerate the search.
 
 ## ⚙️ Features
 
@@ -45,7 +59,7 @@ SUFFIX="00" # Example: ends with '00'
 npm run build
 ```
 
-## 📊 Output: The bot will search for an address that matches the `.env` configuration. Example output:
+## 📊 Output: The tool will search for an address that matches the `.env` configuration. Example output:
 
 ```
 WSL@DESKTOP:~/evm-address-maker$ npm run build
@@ -64,7 +78,7 @@ WSL@DESKTOP:~/evm-address-maker$
 
 - **Security**: Keep your private key secure. Never share it or store it in unsafe locations.
 - **Efficiency**: The longer the prefix/suffix, the more time it will take to find a matching address. Use wisely.
-- **Multi-threading**: The bot automatically detects the number of CPU cores to determine the number of threads to use.
+- **Multi-threading**: The tool automatically detects the number of CPU cores to determine the number of threads to use.
 
 ## 👤 Author
 
