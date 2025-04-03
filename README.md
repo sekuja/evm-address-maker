@@ -16,7 +16,7 @@
 
 ## 📖 Introduction
 
-Generate Ethereum addresses with custom prefixes/suffixes using multi-threading for optimal performance.
+Generate EVM addresses with custom prefixes and suffixes using multi-threading for optimal performance.
 
 ## ⚙️ Features
 

@@ -1,6 +1,7 @@
 {
   "name": "evm-address-maker",
-  "version": "1.0.4",
+  "version": "1.0.5",
+  "description": "Generate EVM addresses with custom prefixes and suffixes using multi-threading for optimal performance.",
   "main": "src/index.js",
   "scripts": {
     "build": "node src/index.js",
