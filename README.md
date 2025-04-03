@@ -1,4 +1,4 @@
-<h1 align="center">EVM Address Maker</h1>
+<h1 align="center">🔍 EVM Address Maker</h1>
 
 <!-- The badges section -->
 <p align="center">
@@ -16,73 +16,72 @@
 
 ## 📖 Introduction
 
-**EVM Address Maker** is a tool designed to help you generate Ethereum (or other EVM-compatible network) addresses with custom prefixes and/or suffixes. The tool leverages worker threads for parallel processing to accelerate the search.
+Generate Ethereum addresses with custom prefixes/suffixes using multi-threading for optimal performance.
 
 ## ⚙️ Features
 
-- **Custom Address Search**: Find addresses with specific prefixes and/or suffixes.
-- **High Efficiency**: Uses multi-threading for faster address generation.
-- **Time Feedback**: Displays the time during the search process.
-- **User-Friendly**: Configuration via a simple `.env` file.
+- Find addresses matching any hex prefix/suffix (e.g., `0x000000...` or `...deadbeef`)
+- Multi-threaded (automatically uses all CPU cores)
+- Real-time stats (speed/checks/elapsed time)
+- Lightweight and CLI-friendly
 
 ## 📋 Requirements
 
 - [Node.js](https://nodejs.org/) (Latest LTS version is recommended)
 - NPM (Comes bundled with Node.js)
 
-## 🚀 Installation
+## 🚀 Quick Start
 
-### Clone the Repository:
+1. Install
 
 ```
 git clone https://github.com/sekuja/evm-address-maker.git
 cd evm-address-maker
-```
-
-### Install Dependencies:
-
-```
 npm install
 ```
 
-### Set Up `.env` Configuration: Create a `.env` file in the root directory and add the following:
+2. Configure `.env` file
 
 ```
-# Replace '0x00' and '00' with the prefix and suffix you want.
-# NUM_THREADS="" comment '#' To use the maximum number of threads (based on CPU cores), keep this line commented.
-# If you want to manually set the number of threads, remove the comment '#' and specify the number, e.g., NUM_THREADS="4".
-
-# NUM_THREADS="" # Number of threads to use (default is the number of CPU cores).
-PREFIX="0x00" # Example: starts with '0x00'
-SUFFIX="00" # Example: ends with '00'
+PREFIX=000000  # Your desired hex prefix (without 0x)
+SUFFIX=        # Optional hex suffix
+NUM_THREADS=auto  # Or set manually (e.g., 4)
+BUFFER_SIZE=100000  # Tune for performance
 ```
 
-### Run the Script: Use the following command to start the search:
+3. Run
 
 ```
 npm run build
 ```
 
-## 📊 Output: The tool will search for an address that matches the `.env` configuration. Example output:
+## 📊 Expected Output
 
 ```
-WSL@DESKTOP:~/evm-address-maker$ npm run build
+🚀 Searching for 0x123...abc with 8 threads
+[2025-04-02T10:00:00Z] Threads: 8 | Speed: 215,000 keys/s | Checks: 4,200,000 | Elapsed: 20s
 
-> evm-address-maker@1.0.3 build
-> node src/index.js
-
-Looking for addresses with the prefix "0x00" and the suffix "00" using 8 threads.
-Address found!
-Address: 0x008CeB3e3f52c7F2724927c40efc5F81Fc501D00
-Private Key: 0x4706ee536aff8b4c17efa1bfbbd04a404becba1f28dd31a0579e3f0151072734
-WSL@DESKTOP:~/evm-address-maker$
+✅ Match found!
+Address: 0x123def...abc
+Private Key: 0x1234...5678
+Total checks: 4,200,000
 ```
 
-## ⚠️ Important Notes
+## 📈 Performance Tips
 
-- **Security**: Keep your private key secure. Never share it or store it in unsafe locations.
-- **Efficiency**: The longer the prefix/suffix, the more time it will take to find a matching address. Use wisely.
-- **Multi-threading**: This tool automatically detects the number of CPU cores to determine the number of threads to use. You can also specify the number of threads manually by setting the `NUM_THREADS` variable in the `.env` file.
+1.  For short patterns (≤4 chars):
+
+```
+BUFFER_SIZE=50000  # Faster updates
+```
+
+2. For long patterns (≥6 chars):
+
+```
+BUFFER_SIZE=200000  # Reduced overhead
+```
+
+3. If overheating occurs, reduce the number of threads being used (e.g., `NUM_THREADS=6` on an 8-core CPU).
 
 ## 👤 Author
 
@@ -93,19 +92,6 @@ WSL@DESKTOP:~/evm-address-maker$
 ## 📜 License
 
 - This project is licensed under the MIT License.
-
-## 🤝 Contributing
-
-Contributions are welcome! If you encounter bugs or have suggestions for improvements, feel free to open an issue or submit a pull request.
-
-- Fork the repository.
-- Create a new branch:
-
-  ```
-  git checkout -b your-feature-branch
-  ```
-
-- Submit a Pull Request.
 
 ## ☕️ Tips
 
